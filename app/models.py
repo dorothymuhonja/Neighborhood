@@ -18,7 +18,7 @@ class Neighborhood(models.Model):
 
 
     def __str__(self):
-        return f'{self.name}hood'
+        return f'{self.name}'
 
     def save_neighborhood(self):
         self.save()
@@ -48,7 +48,7 @@ class Profile(models.Model):
     Neighborhood = models.ForeignKey(Neighborhood, on_delete=models.SET_NULL, null=True, related_name='residents', blank=True)
 
     def __str__(self):
-        return f'{self.user.username} Profile'
+        return f'{self.user.username}'
 
     def save_profile(self):
         super().save()
@@ -90,7 +90,7 @@ class Business(models.Model):
         verbose_name_plural = 'Businesses'
 
     def __str__(self):
-        return f'{self.name} Business'
+        return f'{self.name}'
 
     def save_business(self):
         self.save()
@@ -130,7 +130,7 @@ class Post(models.Model):
     neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE, related_name='neighborhood_post')
 
     def __str__(self):
-        return f'{self.title} Post'
+        return f'{self.title}'
 
     def save_post(self):
         self.save()
