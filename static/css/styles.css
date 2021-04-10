@@ -4,7 +4,14 @@ body{
     background-repeat: no-repeat;
 }
 
-home-button{
+.home-title{
+    padding-top: 100px;
+}
+.row{
     padding-top: 50px;
+}
+
+a.home-button{
+    font-weight: 600;
 }
 
