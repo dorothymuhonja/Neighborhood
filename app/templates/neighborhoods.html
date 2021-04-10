@@ -1,0 +1,66 @@
+{%include 'base.html'%}
+{% load crispy_forms_tags %}
+{% block content %}
+<body style=" background-image: url('https://victormatara.com/wp-content/uploads/2017/10/IMG_20171025_151222.jpg');
+background-size: cover;
+background-repeat:  no-repeat;">
+    <div class="container-fluid">
+
+        </div>
+        <section class="magazine-section" style="margin-top: 60px;">
+            {% for neighborhood in all_hoods %}
+            <div class="card mb-4 rgba-stylish-strong p-2">
+                <h3 class="text-center font-weight-bold mb-4 pt-3 green-text">{{ neighborhood.name }}</h3>
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 mb-4">
+                        <div class="single-news">
+                            <div class="view overlay rounded z-depth-1-half mb-4">
+                                <img src="{{ neighborhood.image.url }}" class="card-img-top" alt="{{ neighborhood.name }}" height="300px">
+                                <a>
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
+                            <div class="news-data d-flex justify-content-between">
+                                <a href="#!" class=" white-text">
+                                    <h6 class="font-weight-bold">
+                                        <i class="fas fa-map-marker-alt text-success"></i>&nbsp;{{ neighborhood.location }}
+                                    </h6>
+                                </a>
+                                <p class="font-weight-bold white-text pr-2">
+                                    <i class="fas fa-user-check text-success"></i>&nbsp;<b class="">{{ neighborhood.population.count }}</b> Member{{neighborhood.population.count | pluralize}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 mb-4">
+                        <div class="single-news mb-4">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="view overlay rounded z-depth-1 mb-4 p-2" style="height:300px;">
+                                        <div class="mask rgba-white-slight"></div>
+                                        <h3 class="text-center pt-4 green-text"><i class="fas fa-info-circle"></i>&nbsp;{{ neighborhood.name }}</h3>
+                                        <h5 class="text-center text-grey pt-3">{{ neighborhood.description}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="news-data d-flex justify-content-between">
+                                {% if request.user.profile.neighborhood == neighborhood %}
+                                <h6 class="exit">
+                                    <a href="#" class="btn btn-outline-danger btn-sm mb-2">Leave Neighborhood</a>
+                                </h6>
+                                <p class="font-weight-bold white-text">
+                                    <a href="#" class="btn btn-outline-success btn-sm">Explore {{user.profile.neighborhood.name}} Estate</a>
+                                </p>
+                                {% elif not request.user.profile.neighborhood %}
+                                <a href="#" class="btn btn-success btn-sm">Join Neighborhood</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+    </div>
+</body>
+{% endblock %}

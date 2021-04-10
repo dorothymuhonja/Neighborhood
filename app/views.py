@@ -56,4 +56,15 @@ def profile(request):
         'u_form': u_form,
         'p_form': p_form,
     }
+
     return render(request, 'profile/profile.html', context)
+
+
+def neighborhoods(request):
+    all_hoods = Neighborhood.objects.all()
+    all_hoods = all_hoods[::-1]
+
+    context = {
+        'all_hoods': all_hoods,
+    }
+    return render(request, 'neighborhoods.html', context)
