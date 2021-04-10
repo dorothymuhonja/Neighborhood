@@ -44,8 +44,8 @@ class Neighborhood(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     avatar = models.ImageField(default='default.jpg', upload_to='profile_pics')
-    status = models.TextField()
-    Neighborhood = models.ForeignKey(Neighborhood, on_delete=models.SET_NULL, null=True, related_name='residents', blank=True)
+    status = models.CharField(max_length=100)
+    neighborhood = models.ForeignKey(Neighborhood, on_delete=models.SET_NULL, null=True, related_name='residents', blank=True)
 
     def __str__(self):
         return f'{self.user.username}'
