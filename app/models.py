@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
+from cloudinary.models import CloudinaryField
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils import timezone
@@ -10,7 +11,7 @@ class Neighborhood(models.Model):
     name = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
     admin = models.ForeignKey(User, on_delete=models.CASCADE, related_name='hood')
-    image = models.ImageField(upload_to='neighborhoods/')
+    image = CloudinaryField('hoods')
     description = models.TextField()
     medical_contact = models.IntegerField(null=True, blank=True)
     police_contact = models.IntegerField(null=True, blank=True)
@@ -43,8 +44,8 @@ class Neighborhood(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar = models.ImageField(default='default.jpg', upload_to='profile_pics')
-    status = models.CharField(max_length=100)
+    avatar = CloudinaryField('avatar')
+    bio = models.TextField(blank=True)
     neighborhood = models.ForeignKey(Neighborhood, on_delete=models.SET_NULL, null=True, related_name='residents', blank=True)
 
     def __str__(self):

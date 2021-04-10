@@ -13,7 +13,6 @@ class SignupForm(UserCreationForm):
 
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField(max_length=250)
-    bio = forms.CharField()
 
     class Meta:
         model = User
@@ -23,7 +22,7 @@ class UserUpdateForm(forms.ModelForm):
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['avatar', 'status']
+        fields = ['avatar', 'bio']
 
 
 class NeighborhoodForm(forms.ModelForm):
