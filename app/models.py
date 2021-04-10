@@ -85,6 +85,10 @@ class Business(models.Model):
     email = models.EmailField(max_length=100)
     Neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE, related_name='business')
 
+    class Meta:
+        verbose_name = 'Business'
+        verbose_name_plural = 'Businesses'
+
     def __str__(self):
         return f'{self.name} Business'
 
