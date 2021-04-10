@@ -36,6 +36,9 @@ cloudinary.config(
   api_secret = config('API_SECRET'),
 )
 
+# crispy template pack
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 # Application definition
 
 INSTALLED_APPS = [
