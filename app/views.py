@@ -68,3 +68,23 @@ def neighborhoods(request):
         'all_hoods': all_hoods,
     }
     return render(request, 'neighborhoods.html', context)
+
+
+@login_required
+@csrf_protect
+def join_neighborhood(request, id):
+    neighborhood = get_object_or_404(Neighborhood, id=id)
+    request.user.profile.neighborhood = neighborhood
+    request.user.profile.save()
+    messages.success(request, 'You have successfully joined this neighborhood')
+    return redirect('neighborhoods')
+
+
+@login_required
+@csrf_protect
+def leave_neighborhood(request, id):
+    neighborhood = get_object_or_404(Neighborhood, id=id)
+    request.user.profile.neighborhood = None
+    request.user.profile.save()
+    messages.success(request, 'You have succesfully left this neighborhood')
+    return redirect('neighborhoods')

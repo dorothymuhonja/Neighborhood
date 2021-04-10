@@ -46,13 +46,15 @@ background-repeat:  no-repeat;">
                             <div class="news-data d-flex justify-content-between">
                                 {% if request.user.profile.neighborhood == neighborhood %}
                                 <h6 class="exit">
-                                    <a href="#" class="btn btn-outline-danger btn-sm mb-2">Leave Neighborhood</a>
+                                    <a href="{% url 'leave-hood' neighborhood.id %}" class="btn btn-outline-danger btn-sm mb-2">Leave Neighborhood</a>
+                                    
                                 </h6>
                                 <p class="font-weight-bold white-text">
                                     <a href="#" class="btn btn-outline-success btn-sm">Explore {{user.profile.neighborhood.name}} Estate</a>
                                 </p>
                                 {% elif not request.user.profile.neighborhood %}
-                                <a href="#" class="btn btn-success btn-sm">Join Neighborhood</a>
+                                <a href="{% url 'join-hood' neighborhood.id %}" class="btn btn-success btn-sm">Join Neighborhood</a>
+                                
                                 {% endif %}
                             </div>
                         </div>
