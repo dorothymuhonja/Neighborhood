@@ -13,7 +13,7 @@ class SignupForm(UserCreationForm):
 
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField(max_length=250)
-    bio = forms.TextField()
+    bio = forms.CharField()
 
     class Meta:
         model = User
