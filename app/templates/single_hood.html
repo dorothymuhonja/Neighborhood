@@ -3,16 +3,14 @@
 {% load static %}
 {% block content %}
 
-<body style=" background-image: url('https://victormatara.com/wp-content/uploads/2017/10/IMG_20171025_151222.jpg');
-background-size: cover;
-background-repeat:  no-repeat;">
+<body>
     <div class="container-fluid">
         <div class="row mt">
             <div class="col-md-6 mt-2">
-                <div class="card p-2" style="background-color: rgb(49, 255, 142);">
+                <div class="card p-2" style="background-color: rgb(139, 139, 219);">
                     <h5 class="mt-2 mb-3 p-2"
-                        style="color: black; font-weight:bold;border-bottom: 2px solid rgb(115, 219, 115);"><i
-                            class="fas fa-map-marker-alt green-text"></i> {{ neighborhood.name }}
+                        style="color: black; font-weight:bold;border-bottom: 2px solid rgb(177, 185, 177);"><i
+                            class="fas fa-map-marker-alt white-text"></i> {{ neighborhood.name }}
                         ({{neighborhood.location}})</h5>
                     <div class="view overlay rounded z-depth-1-half p-1 bg-white">
                         <img src="{{ neighborhood.image.url }}" class="card-img-top" alt="{{ hood.name }}"
@@ -31,33 +29,35 @@ background-repeat:  no-repeat;">
                         </h6>
                     </div>
                     <div class="card-content">
-                        <h5 class="mb-3 p-2" style="font-weight:bold;border-bottom: 2px solid rgb(115, 219, 115);">
-                            <i class="fas fa-info-circle green-text"></i>
-                            <b class="text-dark">About {{ neighborhood.name }} Neighborhood</b>
+                        <h5 class="mb-3 p-2" style="font-weight:bold;border-bottom: 2px solid rgb(177, 185, 177);">
+                            <i class="fas fa-info-circle white-text"></i>
+                            <b class="text-dark">About {{ neighborhood.name }}</b>
                         </h5>
                         <p class="card-text">{{neighborhood.description}}</p>
                     </div>
                     <div class="card-content mt-3">
-                        <h5 class="mb-3 p-2" style="font-weight:bold;border-bottom: 2px solid rgb(115, 219, 115);">
-                            <i class="fas fa-phone-volume green-text"></i>
+                        <h5 class="mb-3 p-2" style="font-weight:bold;border-bottom: 2px solid rgb(177, 185, 177);">
+                            <i class="fas fa-phone-volume white-text"></i>
                             <b class="text-dark">Contact Informations</b>
                         </h5>
-                        <p class="card-text">
-                            <span class="text-info">Police</span> &nbsp;
-                            <strong>{{neighborhood.police_number}}</strong> <br>
-                            <span class="text-info">Healthcare</span>
-                            <strong>{{neighborhood.health_number}}</strong>
+                        <p class="card-text" style="font-weight: 700;">
+                            <span class="text-white">Police: </span> &nbsp;
+                            <strong>{{neighborhood.police_contact}}</strong> <br>
+                            <span class="text-white">Healthcare: </span>
+                            <strong>{{neighborhood.medical_contact}}</strong><br>
+                            <span class="text-white">Fire Department: </span>
+                            <strong>{{neighborhood.fire_dept}}</strong>
                         </p>
                     </div>
-                    <div class="card-content mt-3">
-                        <h5 class="mb-3 p-2" style="font-weight:bold;border-bottom: 2px solid rgb(115, 219, 115);">
-                            <i class="fas fa-calendar-week green-text"></i>
+                    <!-- <div class="card-content mt-3">
+                        <h5 class="mb-3 p-2" style="font-weight:bold;border-bottom: 2px solid rgb(177, 185, 177);">
+                            <i class="fas fa-calendar-week white-text"></i>
                             <b class="text-dark">Events</b>
                         </h5>
                         <p class="card-text">
                         <div class="row">
                             <div class="col-md-3">
-                                <!-- <img class="" width="100" height="100" src="{% static 'ima/date.jpg' %}"> -->
+                         
                             </div>
                             <div class="col-md-9 mt-3">
                                 <h6 class="text-primary">Welcome Party</h6>
@@ -67,10 +67,10 @@ background-repeat:  no-repeat;">
                             </div>
                         </div>
                         </p>
-                    </div>
-                    <div class="card-content mt-3">
-                        <h5 class="mb-3 p-2" style="font-weight:bold;border-bottom: 2px solid rgb(115, 219, 115);">
-                            <i class="fas fa-file-word green-text"></i>
+                    </div> -->
+                    <!-- <div class="card-content mt-3">
+                        <h5 class="mb-3 p-2" style="font-weight:bold;border-bottom: 2px solid rgb(177, 185, 177);">
+                            <i class="fas fa-file-word white-text"></i>
                             <b class="text-dark">Recommendations</b>
                         </h5>
                         <p class="card-text">
@@ -79,10 +79,10 @@ background-repeat:  no-repeat;">
                             <p class="float-right"> recommended by <b class="text-info">Dorothy Muhonja</b> </p>
                         </div>
                         </p>
-                    </div>
+                    </div> -->
                     <div class="card-content mt-3">
-                        <h5 class="mb-3 p-2" style="font-weight:bold;border-bottom: 2px solid rgb(115, 219, 115);">
-                            <i class="fas fa-registered green-text"></i>
+                        <h5 class="mb-3 p-2" style="font-weight:bold;border-bottom: 2px solid rgb(177, 185, 177);">
+                            <i class="fas fa-registered white-text"></i>
                             <b class="text-dark">New Members</b>
                         </h5>
                         <div class="row">
@@ -91,7 +91,7 @@ background-repeat:  no-repeat;">
                                     src="{{ user.profile.avatar.url }}">
                             </div>
                             <div class="col-md-9 mt-3">
-                                <h6 class="text-primary">Dorothy Muhonja</h6>
+                                <h6 style="font-weight: 700;">Dorothy Muhonja</h6>
                                 <p>Lives around the corner</p>
                             </div>
                         </div>
@@ -99,15 +99,15 @@ background-repeat:  no-repeat;">
                 </div>
             </div>
             <div class="col-md-6 mt-2">
-                <div class="card p-4" style="background-color: rgb(49, 255, 142);">
-                    <h5 class="mb-3 p-2" style="font-weight:bold;border-bottom: 2px solid rgb(115, 219, 115);">
-                        <i class="far fa-newspaper green-text"></i>
-                        <b class="text-dark">{{ neighborhood.name }} Neighborhood News</b>
+                <div class="card p-4" style="background-color: rgb(139, 139, 219);">
+                    <h5 class="mb-3 p-2" style="font-weight:bold;border-bottom: 2px solid rgb(177, 185, 177);">
+                        <i class="far fa-newspaper white-text"></i>
+                        <b class="text-dark">{{ neighborhood.name }} Buzz</b>
                     </h5>
-                    <a class="btn btn-sm btn-success mb-4 mr-4" href="{% url 'post' neighborhood.id %}">New Post</a>
+                    <a class="btn btn-sm btn-success mb-4 mr-4" href="{% url 'post' neighborhood.id %}" style="font-weight: 700;">New Post</a>
                     <hr>
                     {% for post in posts %}
-                    <div class="p-2" style="background-color: rgb(49, 255, 142);">
+                    <div class="p-2" style="background-color: rgb(183, 183, 207);">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-3">
@@ -134,18 +134,18 @@ background-repeat:  no-repeat;">
         <div class="container pt-3">
             <div class="row">
                 <div class="col-md-12">
-                    <a href="" class="btn btn-sm btn-success mb-4 mr-4" data-toggle="modal" data-target="#Business">New
+                    <a href="" class="btn btn-sm btn-success mb-4 mr-4" data-toggle="modal" data-target="#Business" style="font-weight: 700;">New
                         Business</a>
-                    <a class="btn btn-sm btn-success mb-4" href="{% url 'neighborhoods' %}">Exit Page</a>
+                    <a class="btn btn-sm btn-danger mb-4" href="{% url 'neighborhoods' %}" style="font-weight: 700;">Exit Page</a>
                     {% if neighborhood.admin == user.profile %}
                     {% endif %}
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link active rgba-stylish-strong text-success" id="home-tab" data-toggle="tab"
+                            <a class="nav-link active rgba-stylish-strong text-primary" id="home-tab" data-toggle="tab"
                                 href="#home" role="tab" aria-controls="home" aria-selected="true">Business</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rgba-stylish-strong text-success" id="profile-tab" data-toggle="tab"
+                            <a class="nav-link rgba-stylish-strong text-primary" id="profile-tab" data-toggle="tab"
                                 href="#profile" role="tab" aria-controls="profile" aria-selected="false">Posts</a>
                         </li>
                     </ul>
@@ -157,13 +157,13 @@ background-repeat:  no-repeat;">
                                 <div class="col-md-4">
                                     <div class="card mb-4">
                                         <div class="card-body">
-                                            <h6 class="card-title text-success">{{bus.name}}:
+                                            <h6 class="card-title text-primary">{{bus.name}}:
                                                 <span class="text-muted"
                                                     style="font-size: 14px;">{{bus.email}}</span>
                                             </h6>
                                             <p class="card-text text-dark">{{ bus.description }}</p>
                                             <p class="card-text">
-                                                Owner: <small class="text-success">
+                                                Owner: <small class="text-primary">
                                                     {{ bus.user.user.username | title }}</small>
                                             </p>
                                         </div>
@@ -217,7 +217,7 @@ background-repeat:  no-repeat;">
                                     <form action="" method="post">
                                         {% csrf_token%}
                                         {{form | crispy}}
-                                        <button type="submit" class="btn btn-md btn-success">Add</button>
+                                        <button type="submit" class="btn btn-md btn-outline-success">Add</button>
                                         <button type="button" class="btn btn-md btn-outline-danger "
                                             data-dismiss="modal" style="float:right">
                                             Cancel

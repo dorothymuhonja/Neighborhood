@@ -15,6 +15,7 @@ class Neighborhood(models.Model):
     description = models.TextField()
     medical_contact = models.IntegerField(null=True, blank=True)
     police_contact = models.IntegerField(null=True, blank=True)
+    fire_dept= models.IntegerField(null=True, blank=True)
     population = models.IntegerField(null=True, blank=True)
 
 
