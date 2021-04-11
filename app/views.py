@@ -134,3 +134,22 @@ def create_post(request, hood_id):
         form = PostForm()
     return render(request, 'post.html', {'form': form})
 
+
+@login_required
+@csrf_protect
+def search_business(request):
+    if request.method == 'GET':
+        name = request.GET.get('title')
+        results = Business.objects.filter(name__icontains=name).all()
+        message = f'name'
+
+        context = {
+            'results': results,
+            'message': message
+        }
+        return render(request, 'search.html', context)
+
+    else:
+        message = "You haven't searched for any businesses"
+    return render(request, 'search.html')
+

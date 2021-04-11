@@ -59,7 +59,7 @@
                     <a class="nav-link" href="/logout">Logout</a>
                 </li>
             <!-- Search form -->
-            <form class="form-inline d-flex justify-content-center md-form form-sm active-green-2 mt-2" action="#" method="GET" style="margin-left: 45rem;">
+            <form class="form-inline d-flex justify-content-center md-form form-sm active-green-2 mt-2" action="{% url 'search' %}" method="GET" style="margin-left: 45rem;">
                 <input class="form-control form-control mr-3" type="text" placeholder="Search Business" aria-label="Search" name="title">
                 <button style="margin-left: 5px;" class="btn btn-outline bg-light btn-sm my-2 my-sm-0 " type="submit"><i class="fa fa-search text-success" aria-hidden="true"></i></button>
             </form>
