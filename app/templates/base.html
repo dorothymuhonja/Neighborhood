@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {% block styles %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Google Fonts -->
@@ -28,47 +30,56 @@
     
 </head>
 <body>
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <!-- Container wrapper -->
-    <div class="container-fluid">
-        <!-- Navbar brand -->
-        <a class="navbar-brand" href="/">Neighborhood</a>
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
 
-        <!-- Toggle button -->
-        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-            data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-        </button>
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="/">Neighborhood</a>
 
-        <!-- Collapsible wrapper -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left links -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'profile' %}">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'neighborhoods' %}">Neighborhoods</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout">Logout</a>
-                </li>
-            <!-- Search form -->
-            <form class="form-inline d-flex justify-content-center md-form form-sm active-green-2 mt-2" action="{% url 'search' %}" method="GET" style="margin-left: 45rem;">
-                <input class="form-control form-control mr-3" type="text" placeholder="Search Business" aria-label="Search" name="title">
-                <button style="margin-left: 5px;" class="btn btn-outline bg-light btn-sm my-2 my-sm-0 " type="submit"><i class="fa fa-search text-success" aria-hidden="true"></i></button>
-            </form>
-        </div>
-        <!-- Collapsible wrapper -->
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+        aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+                                
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+            </li>
+
+                           
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'neighborhoods' %}">Neighborhoods</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+            </li>
+
+
+        </ul>
+        <!-- Links -->
+
+        <form class="form-inline" action="{% url 'search' %}" method="GET">
+            <div class="md-form my-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search Business" aria-label="Search" name="title">
+                <button style="margin-left: 5px;" class="btn btn-outline bg-light btn-sm my-2 my-sm-0 " type="submit"><i
+                        class="fa fa-search text-primarry" aria-hidden="true"></i></button>
+            </div>
+        </form>
     </div>
-    <!-- Container wrapper -->
+    <!-- Collapsible content -->
+
 </nav>
-<!-- Navbar -->
+
 <div class="container">
     {% block content %}
 
@@ -88,6 +99,6 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 
-    {% endblock %}%}
+    {% endblock %}
 </body>
 </html>
