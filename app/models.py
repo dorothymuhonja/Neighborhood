@@ -84,7 +84,8 @@ class Business(models.Model):
     name = models.CharField(max_length=100)
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='owner')
     email = models.EmailField(max_length=100)
-    Neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE, related_name='business')
+    description = models.TextField(blank=True)
+    neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE, related_name='business')
 
     class Meta:
         verbose_name = 'Business'

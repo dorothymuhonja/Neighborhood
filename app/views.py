@@ -88,3 +88,49 @@ def leave_neighborhood(request, id):
     request.user.profile.save()
     messages.success(request, 'You have succesfully left this neighborhood')
     return redirect('neighborhoods')
+
+
+@login_required
+@csrf_protect
+def single_neighborhood(request, hood_id):
+    neighborhood = Neighborhood.objects.get(id=hood_id)
+    business = Business.objects.filter(neighborhood=neighborhood)
+    posts = Post.objects.filter(neighborhood=neighborhood)
+    posts = posts[::-1]
+    if request.method == 'POST':
+        form = BusinessForm(request.POST)
+        if form.is_valid():
+            business_form = form.save(commit=False)
+            business_form.neighborhood = neighborhood
+            business_form.user = request.user.profile
+            business_form.save()
+            return redirect('single-hood', neighborhood.id)
+    else:
+        form = BusinessForm()
+    context = {
+        'neighborhood': neighborhood,
+        'business': business,
+        'form': form,
+        'posts': posts
+    }
+    return render(request, 'single_hood.html', context)
+
+
+@login_required
+@csrf_protect
+def create_post(request, hood_id):
+    neighborhood = Neighborhood.objects.get(id=hood_id)
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.neighborhood = neighborhood
+            post.user = request.user.profile
+            post.save()
+            messages.success(request, 'You have created a post')
+            return redirect('single-hood', neighborhood.id)
+
+    else:
+        form = PostForm()
+    return render(request, 'post.html', {'form': form})
+

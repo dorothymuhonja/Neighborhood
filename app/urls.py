@@ -13,7 +13,10 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('all-hoods/', views.neighborhoods, name='neighborhoods'),
     path('join_hood/<int:id>', views.join_neighborhood, name='join-hood'),
-    path('leave_hood/<int:id>', views.leave_neighborhood, name='leave-hood'),
+    path('leave_hood/<int:id>', views.leave_neighborhood, name='leave-hood'), 
+    path('single_hood/<int:hood_id>', views.single_neighborhood, name='single-hood'),
+    path('<int:hood_id>/post/', views.create_post, name='post'),
+
 ]
 
 if settings.DEBUG:
