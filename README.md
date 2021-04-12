@@ -54,7 +54,7 @@ python3 manage.py runserver
 * Post a business
 * Set up your own profile
 
-* Note: A user can only join one neighborhood
+* Note: A user cannot join more than  one neighborhood
 
 #### System Admin
 * Can add, change or delete the users and neighborhood admins
@@ -62,11 +62,6 @@ python3 manage.py runserver
 ### Neighborhood admin
 * Can add a business
 * Can add content
-
-### Future development
-* Add comment for posts
-
-
 
 ## Email Address
 dorothymuhonja7@gmail.com
