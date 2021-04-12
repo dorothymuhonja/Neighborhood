@@ -1,0 +1,21 @@
+body{
+    font-family: 'Kiwi Maru', serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+}
+
+.navbar{
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.navbar-brand{
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.navbar-nav{
+    margin-left: 100px;
+}
+
+.nav-link{
+    font-size: 20px;
+}
